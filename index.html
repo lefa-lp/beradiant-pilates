@@ -2095,11 +2095,11 @@
       .column-grid { grid-template-columns: repeat(2, 1fr); }
       .kids-grid { grid-template-columns: 1fr; }
       .amenity-grid { grid-template-columns: repeat(3, 1fr); }
-      .num-row { flex-direction: column; align-items: center; gap: 18px; }
+      .num-row { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; }
       .num-circle-wrap { width: auto; }
       .num-line { display: none; }
-      .num-circle { width: 120px; height: 120px; font-size: 12px; }
-      .num-circle .num { font-size: 24px; }
+      .num-circle { width: 100px; height: 100px; font-size: 10px; padding: 10px; }
+      .num-circle .num { font-size: 20px; margin-bottom: 3px; }
       .num-banner { padding: 22px 18px; font-size: 16px; }
       .num-banner .ribbon { position: static; writing-mode: horizontal-tb; display: block; width: auto; margin: -22px -18px 16px; padding: 8px 12px; letter-spacing: 1px; }
       .fold-card { flex-direction: column; text-align: center; }
