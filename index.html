@@ -782,52 +782,6 @@
       border-radius: 20px;
     }
 
-    /* ===== SUPPORT ===== */
-    .support-section { background: #fff; }
-
-    .support-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .support-item {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 28px 24px;
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      transition: border-color .25s ease;
-    }
-
-    .support-item:hover { border-color: var(--gold); }
-
-    .support-icon {
-      font-size: 26px;
-      flex-shrink: 0;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .support-item h4 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .support-item p {
-      font-size: 13px;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-
     /* ===== NUM CIRCLE ROW (こんな方におすすめです) ===== */
     .recommend-section { background: var(--bg-light); }
 
@@ -910,6 +864,27 @@
       letter-spacing: 2px;
     }
 
+    /* ===== INTRO PHOTOS (under recommend banner) ===== */
+    .intro-photo-row {
+      display: flex;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 32px auto 0;
+    }
+
+    .intro-photo {
+      flex: 1;
+      aspect-ratio: 4 / 3;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .intro-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* ===== ATTRACTION (魅力5選) ===== */
     .attraction-section { background: var(--slate); }
 
@@ -937,7 +912,7 @@
       display: flex;
       flex-direction: column;
       gap: 40px;
-      max-width: 820px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -957,13 +932,50 @@
       justify-content: center;
       font-size: 46px;
       border: 4px solid rgba(255,255,255,.15);
+      overflow: hidden;
+    }
+
+    .attraction-row .a-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .attraction-row .a-body { flex: 1; }
 
+    .attraction-group {
+      position: relative;
+    }
+
+    .attraction-group .a-photo-lg {
+      position: absolute;
+      left: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,.15);
+    }
+
+    .attraction-group .a-photo-lg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .attraction-group-body {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .a-item-near { margin-left: 320px; }
+    .a-item-far { margin-left: 420px; }
+
     .a-num-bar {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 16px;
       margin-bottom: 12px;
     }
@@ -982,6 +994,12 @@
       font-family: 'Montserrat', sans-serif;
     }
 
+    .a-num-bar .a-label-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     .a-num-bar .a-label {
       background: rgba(255,255,255,.1);
       border-left: 4px solid var(--gold);
@@ -989,10 +1007,23 @@
       font-weight: 800;
       font-size: 16px;
       color: #fff;
-      flex: 1;
     }
 
-    .attraction-row p {
+    .a-underline {
+      height: 3px;
+      background: rgba(255,255,255,.85);
+      margin-top: 5px;
+    }
+
+    .a-underline::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: rgba(255,255,255,.4);
+      margin-top: 3px;
+    }
+
+    .attraction-row p, .a-item p {
       font-size: 13.5px;
       color: rgba(255,255,255,.7);
       line-height: 1.8;
@@ -1005,22 +1036,43 @@
     .effect-row {
       display: flex;
       align-items: center;
-      gap: 36px;
-      margin-bottom: 40px;
+      gap: 0;
+      margin-bottom: 64px;
     }
 
     .effect-row:last-child { margin-bottom: 0; }
     .effect-row:nth-child(even) { flex-direction: row-reverse; }
 
     .effect-photo {
-      width: 240px; height: 200px;
-      flex-shrink: 0;
+      flex: 0 0 56%;
+      height: 340px;
       border-radius: 2px;
       background: linear-gradient(135deg, var(--slate-3), var(--navy));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 56px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .effect-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .effect-text {
+      flex: 0 0 48%;
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(4px);
+      padding: 40px 44px;
+      margin-right: -80px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 16px 40px rgba(26,43,95,.12);
+    }
+
+    .effect-row:nth-child(even) .effect-text {
+      margin-right: 0;
+      margin-left: -80px;
     }
 
     .effect-text .e-num {
@@ -1213,66 +1265,82 @@
     .flow-section { background: var(--slate); }
 
     .timeline {
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 auto;
       position: relative;
-      padding-left: 4px;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 39px;
-      top: 44px;
-      bottom: 44px;
-      width: 2px;
-      background: rgba(255,255,255,.2);
+      left: 60px;
+      top: 60px;
+      bottom: 60px;
+      width: 1px;
+      background: rgba(255,255,255,.3);
     }
 
     .timeline-step {
       display: flex;
-      gap: 24px;
-      margin-bottom: 44px;
+      align-items: flex-start;
+      gap: 28px;
+      margin-bottom: 56px;
       position: relative;
     }
 
     .timeline-step:last-child { margin-bottom: 0; }
 
+    .timeline-circle-wrap {
+      position: relative;
+      flex-shrink: 0;
+      width: 120px;
+    }
+
+    .timeline-num {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      z-index: 3;
+    }
+
     .timeline-circle {
-      width: 80px; height: 80px;
+      width: 84px; height: 84px;
+      margin-left: 36px;
       border-radius: 50%;
-      background: rgba(255,255,255,.06);
-      border: 2px solid rgba(255,255,255,.35);
+      background: #e2e3e6;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
-      flex-shrink: 0;
-      color: #fff;
+      color: var(--slate);
+      position: relative;
       z-index: 2;
     }
 
-    .timeline-content { padding-top: 10px; }
-
-    .timeline-content .t-num {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 1px;
-      margin-bottom: 6px;
+    .timeline-circle svg {
+      width: 38px; height: 38px;
+      stroke: var(--slate);
+      stroke-width: 1.6;
+      fill: none;
     }
 
+    .timeline-content { padding-top: 14px; }
+
     .timeline-content h4 {
-      font-size: 17px;
+      font-size: 20px;
       color: #fff;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .timeline-content p {
-      font-size: 13px;
-      color: rgba(255,255,255,.7);
-      line-height: 1.7;
+      font-size: 14px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.8;
     }
 
     /* ===== GALLERY ===== */
@@ -2025,7 +2093,6 @@
       .access-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .column-grid { grid-template-columns: repeat(2, 1fr); }
-      .support-grid { grid-template-columns: repeat(2, 1fr); }
       .kids-grid { grid-template-columns: 1fr; }
       .amenity-grid { grid-template-columns: repeat(3, 1fr); }
       .num-row { gap: 16px; }
@@ -2054,10 +2121,15 @@
       .stat-badge .stat-unit { font-size: 7px; }
       .compare-section .table-wrap { padding: 16px; }
       .attraction-row { flex-direction: column; text-align: center; }
-      .attraction-row p { padding-left: 0; }
+      .attraction-row p, .a-item p { padding-left: 0; }
       .a-num-bar { flex-direction: column; }
+      .attraction-group { text-align: center; }
+      .attraction-group .a-photo-lg { position: static; transform: none; margin: 0 auto 24px; }
+      .a-item-near, .a-item-far { margin-left: 0; }
+      .intro-photo-row { flex-direction: column; }
       .effect-row, .effect-row:nth-child(even) { flex-direction: column; }
-      .effect-photo { width: 100%; height: 180px; }
+      .effect-photo { width: 100%; height: 180px; flex: none; }
+      .effect-text, .effect-row:nth-child(even) .effect-text { margin: -40px 16px 0; flex: none; }
       .price-join-rule { flex-direction: column; text-align: center; }
       .price-plan-head { flex-direction: column; }
       .price-extra-row { flex-direction: column; }
@@ -2068,7 +2140,6 @@
       .result-card { flex-basis: 84vw; padding: 28px 22px; }
       .results-scroll { gap: 16px; padding-left: 20px; padding-right: 20px; }
       .pricing-grid { grid-template-columns: 1fr 1fr; }
-      .support-grid { grid-template-columns: 1fr; }
       .column-grid { grid-template-columns: 1fr; }
       .amenity-grid { grid-template-columns: repeat(2, 1fr); }
       .num-row { flex-direction: column; align-items: center; }
@@ -2306,37 +2377,31 @@
     <div class="attraction-banner">パーソナルピラティストレーニングの魅力</div>
     <div class="attraction-list">
       <div class="attraction-row">
-        <div class="a-photo">🧑‍⚕️</div>
         <div class="a-body">
-          <div class="a-num-bar"><span class="a-num">01</span><span class="a-label">理学療法士のサポート</span></div>
+          <div class="a-num-bar"><span class="a-num">01</span><div class="a-label-col"><span class="a-label">理学療法士のサポート</span><div class="a-underline"></div></div></div>
           <p>マンツーマンで指導してくれるので、モチベーションを保ちやすい！体の状態を専門的に見てもらえる安心感があります。</p>
         </div>
       </div>
-      <div class="attraction-row">
-        <div class="a-photo">📋</div>
-        <div class="a-body">
-          <div class="a-num-bar"><span class="a-num">02</span><span class="a-label">完全カスタムメイドのメニュー</span></div>
-          <p>個人の目標や悩みに合わせて、理学療法士がカスタムメニューを作成します。</p>
+      <div class="attraction-group">
+        <div class="a-photo-lg"><img src="attraction-photo-custom.jpg" alt="完全カスタムメイドのメニュー"></div>
+        <div class="attraction-group-body">
+          <div class="a-item a-item-near">
+            <div class="a-num-bar"><span class="a-num">02</span><div class="a-label-col"><span class="a-label">完全カスタムメイドのメニュー</span><div class="a-underline"></div></div></div>
+            <p>個人の目標や悩みに合わせて、理学療法士がカスタムメニューを作成します。</p>
+          </div>
+          <div class="a-item a-item-far">
+            <div class="a-num-bar"><span class="a-num">03</span><div class="a-label-col"><span class="a-label">初心者でも簡単に正しい姿勢へ</span><div class="a-underline"></div></div></div>
+            <p>これまであまり運動してこなかった人や、痛い部位がある人にとって効果的なレッスンを指導できます。</p>
+          </div>
+          <div class="a-item a-item-near">
+            <div class="a-num-bar"><span class="a-num">04</span><div class="a-label-col"><span class="a-label">完全マンツーマン</span><div class="a-underline"></div></div></div>
+            <p>1対1のレッスンだから、トレーニングに集中できます。</p>
+          </div>
         </div>
       </div>
       <div class="attraction-row">
-        <div class="a-photo">🌱</div>
         <div class="a-body">
-          <div class="a-num-bar"><span class="a-num">03</span><span class="a-label">初心者でも簡単に正しい姿勢へ</span></div>
-          <p>これまであまり運動してこなかった人や、痛い部位がある人にとって効果的なレッスンを指導できます。</p>
-        </div>
-      </div>
-      <div class="attraction-row">
-        <div class="a-photo">🤝</div>
-        <div class="a-body">
-          <div class="a-num-bar"><span class="a-num">04</span><span class="a-label">完全マンツーマン</span></div>
-          <p>1対1のレッスンだから、トレーニングに集中できます。</p>
-        </div>
-      </div>
-      <div class="attraction-row">
-        <div class="a-photo">⏱️</div>
-        <div class="a-body">
-          <div class="a-num-bar"><span class="a-num">05</span><span class="a-label">マシンの順番待ちナシ</span></div>
+          <div class="a-num-bar"><span class="a-num">05</span><div class="a-label-col"><span class="a-label">完全予約制で待ち時間なし</span><div class="a-underline"></div></div></div>
           <p>完全個室・予約制だから、ロスタイムなく効率よくトレーニングができます。</p>
         </div>
       </div>
@@ -2377,59 +2442,6 @@
   </div>
 </section>
 
-<!-- ===== SUPPORT ===== -->
-<section class="support-section" id="support">
-  <div class="section-inner">
-    <span class="section-label">SUPPORT</span>
-    <h2 class="section-title">こんなお悩みに対応します</h2>
-    <p class="section-sub">初心者から経験者まで、幅広いニーズに対応できるプログラムをご用意しています。</p>
-    <div class="support-grid">
-      <div class="support-item">
-        <span class="support-icon">💪</span>
-        <div>
-          <h4>ダイエット・ボディメイク</h4>
-          <p>体の深層筋から引き締め、理想のボディラインへ。リバウンドしにくい体づくりをサポートします。</p>
-        </div>
-      </div>
-      <div class="support-item">
-        <span class="support-icon">🧍</span>
-        <div>
-          <h4>姿勢改善</h4>
-          <p>猫背・反り腰・巻き肩など、日常の姿勢の悩みを根本から改善します。</p>
-        </div>
-      </div>
-      <div class="support-item">
-        <span class="support-icon">🤱</span>
-        <div>
-          <h4>産後ケア</h4>
-          <p>産後の体の変化に合わせたプログラム。骨盤底筋の回復をサポートします。</p>
-        </div>
-      </div>
-      <div class="support-item">
-        <span class="support-icon">🌸</span>
-        <div>
-          <h4>マタニティピラティス</h4>
-          <p>妊娠中でも安全に取り組めるピラティス。体の変化に寄り添ったプログラムです。</p>
-        </div>
-      </div>
-      <div class="support-item">
-        <span class="support-icon">😌</span>
-        <div>
-          <h4>肩こり・腰まわりの改善</h4>
-          <p>デスクワークや育児による肩こり・腰痛を、深層筋のアプローチで改善します。</p>
-        </div>
-      </div>
-      <div class="support-item">
-        <span class="support-icon">🌱</span>
-        <div>
-          <h4>ピラティス初心者向け</h4>
-          <p>初めての方でも安心。基礎から丁寧に指導します。運動習慣がない方も大歓迎です。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== RECOMMEND (こんな方におすすめです) ===== -->
 <section class="recommend-section">
   <div class="section-inner">
@@ -2459,6 +2471,11 @@
     <div class="num-banner">
       <span class="ribbon">Be Radiant.の</span>
       パーソナルピラティスなら、すべてを叶えます！
+    </div>
+    <div class="intro-photo-row">
+      <div class="intro-photo"><img src="attraction-photo-support.jpg" alt="理学療法士のサポート"></div>
+      <div class="intro-photo"><img src="attraction-photo-beginner.jpg" alt="効果的なレッスン"></div>
+      <div class="intro-photo"><img src="attraction-photo-noqueue.jpg" alt="完全予約制のレッスン"></div>
     </div>
   </div>
 </section>
@@ -2491,7 +2508,7 @@
     <span class="section-label">EFFECT</span>
     <h2 class="section-title">理学療法士監修のピラティス<br>どんな効果が期待できる？</h2>
     <div class="effect-row">
-      <div class="effect-photo">🧍‍♀️</div>
+      <div class="effect-photo"><img src="attraction-photo-beginner.jpg" alt="姿勢改善"></div>
       <div class="effect-text">
         <span class="e-num">01</span>
         <h4>姿勢改善</h4>
@@ -2499,7 +2516,7 @@
       </div>
     </div>
     <div class="effect-row">
-      <div class="effect-photo">🤸‍♀️</div>
+      <div class="effect-photo"><img src="attraction-photo-custom.jpg" alt="身体機能の向上"></div>
       <div class="effect-text">
         <span class="e-num">02</span>
         <h4>身体機能の向上</h4>
@@ -2507,7 +2524,7 @@
       </div>
     </div>
     <div class="effect-row">
-      <div class="effect-photo">💪</div>
+      <div class="effect-photo"><img src="attraction-photo-support.jpg" alt="インナーマッスルの強化"></div>
       <div class="effect-text">
         <span class="e-num">03</span>
         <h4>インナーマッスルの強化</h4>
@@ -2744,43 +2761,63 @@
     <p class="section-sub">LINEからカンタンに予約できます。初めての方でも安心してご参加ください。</p>
     <div class="timeline">
       <div class="timeline-step">
-        <div class="timeline-circle">📲</div>
+        <div class="timeline-circle-wrap">
+          <span class="timeline-num">01</span>
+          <div class="timeline-circle">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+        </div>
         <div class="timeline-content">
-          <p class="t-num">STEP 01</p>
           <h4>体験レッスン予約</h4>
-          <p>LINEを友だち追加して、ご希望の日時をお知らせください。</p>
+          <p>HPで空き状況を確認してください。<br>ご不明点はお気軽にLINEでお聞きください。</p>
         </div>
       </div>
       <div class="timeline-step">
-        <div class="timeline-circle">🚶</div>
+        <div class="timeline-circle-wrap">
+          <span class="timeline-num">02</span>
+          <div class="timeline-circle">
+            <svg viewBox="0 0 24 24"><path d="M4 9h16v11H4z"/><path d="M3 9l1.5-5h15L21 9"/><line x1="3" y1="9" x2="21" y2="9"/><path d="M9 20v-5h6v5"/></svg>
+          </div>
+        </div>
         <div class="timeline-content">
-          <p class="t-num">STEP 02</p>
           <h4>ご来店</h4>
-          <p>JR戸田駅から徒歩7分。お子様連れでもお気軽にどうぞ。予約時間の10分前にお越しください。</p>
+          <p>初回体験レッスンはご予約時間の10分前に<br>お越しください。</p>
         </div>
       </div>
       <div class="timeline-step">
-        <div class="timeline-circle">👗</div>
+        <div class="timeline-circle-wrap">
+          <span class="timeline-num">03</span>
+          <div class="timeline-circle">
+            <svg viewBox="0 0 24 24"><path d="M9 3l3 2 3-2 5 3-2 4-2-1v9H8v-9l-2 1-2-4z"/></svg>
+          </div>
+        </div>
         <div class="timeline-content">
-          <p class="t-num">STEP 03</p>
           <h4>お着替え</h4>
-          <p>更衣室をご利用ください。ウェアは無料でレンタルできます。</p>
+          <p>動きやすい服装に着替えていただきます。<br>ご用意はありませんのでお着替えをお持ちください。</p>
         </div>
       </div>
       <div class="timeline-step">
-        <div class="timeline-circle">💬</div>
+        <div class="timeline-circle-wrap">
+          <span class="timeline-num">04</span>
+          <div class="timeline-circle">
+            <svg viewBox="0 0 24 24"><path d="M3 6h13v9H8l-4 3v-3H3z"/><path d="M11 15v2h6l3 2v-2h1V9h-4"/></svg>
+          </div>
+        </div>
         <div class="timeline-content">
-          <p class="t-num">STEP 04</p>
           <h4>カウンセリング</h4>
-          <p>体の悩みや目標をお伺いし、最適なプログラムをご提案します。</p>
+          <p>あなたに最適なレッスンを提供するために<br>お話を聞かせていただきます。</p>
         </div>
       </div>
       <div class="timeline-step">
-        <div class="timeline-circle">✨</div>
+        <div class="timeline-circle-wrap">
+          <span class="timeline-num">05</span>
+          <div class="timeline-circle">
+            <svg viewBox="0 0 24 24"><path d="M12 3c1 3-1 4-1 6 0 1.5 1 2 1 2s2-1 2-3c2 2 3 4 3 6a5 5 0 0 1-10 0c0-3 2-5 3-6 1-1 2-3 2-5z"/></svg>
+          </div>
+        </div>
         <div class="timeline-content">
-          <p class="t-num">STEP 05</p>
-          <h4>体験レッスン</h4>
-          <p>60分のマンツーマンレッスン。体の変化を実感してください！</p>
+          <h4>レッスン</h4>
+          <p>実際にレッスンを体験していただき<br>身体の変化を体験していただきます。</p>
         </div>
       </div>
     </div>
@@ -2859,11 +2896,6 @@
         <p>1回（60分）</p>
         <span>¥24,000</span>
       </div>
-      <div class="price-extra-card">
-        <h4>ダイエットプラン</h4>
-        <p>ピラティス込み＋食事管理（年間）</p>
-        <span>¥550,000</span>
-      </div>
     </div>
 
     <p style="text-align:center;color:rgba(255,255,255,.6);font-size:13px;margin-bottom:16px;">対応クレジットカード・お支払い方法</p>
@@ -2896,7 +2928,7 @@
           <span class="q-badge">Q</span>持ち物は何が必要ですか？
           <span class="faq-arrow">▼</span>
         </button>
-        <div class="faq-a">特別な持ち物は不要です。動きやすい服装でお越しください。ウェア・タオル・水は無料でご用意しています。</div>
+        <div class="faq-a">動きやすい服装、ハンドタオル、飲み物をご用意ください</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -2910,14 +2942,7 @@
           <span class="q-badge">Q</span>駐車場はありますか？
           <span class="faq-arrow">▼</span>
         </button>
-        <div class="faq-a">はい、1時間分の駐車料金を無料でご提供しています。また、駐輪場も完備しています。</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="q-badge">Q</span>子ども連れで通えますか？
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">はい、子連れ大歓迎です！キッズスペース・ベビーベッドを完備しており、授乳・おむつ替えの対応も可能です。赤ちゃんが泣いてしまっても安心の完全個室環境です。</div>
+        <div class="faq-a">近隣のコインパーキングをご利用ください</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -2966,8 +2991,8 @@
     <div class="access-grid">
       <div class="access-map">
         <span class="map-icon">📍</span>
-        <p>〒100-0005<br>東京都千代田区丸の内1丁目<br>東京駅周辺</p>
-        <a href="#" style="display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:24px;text-decoration:none;margin-top:8px;">Google マップで見る</a>
+        <p>〒810-0042<br>福岡県福岡市中央区赤坂1丁目6-10<br>エコルクス赤坂Ⅱ602号室</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=福岡県福岡市中央区赤坂1丁目6-10+エコルクス赤坂Ⅱ" style="display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:24px;text-decoration:none;margin-top:8px;">Google マップで見る</a>
       </div>
       <div class="access-info">
         <h3>Be Radiant.<br>パーソナルピラティス</h3>
@@ -2975,33 +3000,36 @@
           <span class="access-row-icon">🏢</span>
           <div>
             <p class="access-row-label">住所</p>
-            <p class="access-row-val">〒100-0005<br>東京都千代田区丸の内1丁目</p>
+            <p class="access-row-val">〒810-0042<br>福岡県福岡市中央区赤坂1丁目6-10<br>エコルクス赤坂Ⅱ602号室</p>
           </div>
         </div>
         <div class="access-row">
           <span class="access-row-icon">🚉</span>
           <div>
             <p class="access-row-label">最寄り駅</p>
-            <p class="access-row-val">JR各線・東京メトロ「東京」駅 徒歩3分</p>
+            <p class="access-row-val">地下鉄空港線「赤坂駅」徒歩3分<br>西鉄天神大牟田線「西鉄福岡（天神）駅」徒歩15分</p>
           </div>
         </div>
         <div class="access-row">
           <span class="access-row-icon">🚗</span>
           <div>
             <p class="access-row-label">駐車場</p>
-            <p class="access-row-val">近隣コインパーキングをご利用ください</p>
+            <p class="access-row-val">近隣のコインパーキングをご利用ください</p>
+          </div>
+        </div>
+        <div class="access-row">
+          <span class="access-row-icon">📅</span>
+          <div>
+            <p class="access-row-label">定休日</p>
+            <p class="access-row-val">不定休</p>
           </div>
         </div>
         <div class="hours-table">
           <p class="access-row-label" style="padding:0 12px 8px;">営業時間</p>
           <table>
             <tr>
-              <td>平日</td>
-              <td>9:00 〜 21:00</td>
-            </tr>
-            <tr>
-              <td>土日祝</td>
-              <td>9:00 〜 19:30</td>
+              <td>全日</td>
+              <td>10:00 〜 21:00</td>
             </tr>
           </table>
         </div>
@@ -3177,7 +3205,7 @@
   });
 
   // ===== SCROLL ANIMATION =====
-  const animTargets = document.querySelectorAll('.feature-card, .result-card, .review-card, .support-item, .pricing-card, .column-card, .kids-card, .news-item, .trial-card, .fold-card, .num-circle-wrap, .timeline-step, .stat-badge, .attraction-row, .effect-row, .price-box');
+  const animTargets = document.querySelectorAll('.feature-card, .result-card, .review-card, .pricing-card, .column-card, .kids-card, .news-item, .trial-card, .fold-card, .num-circle-wrap, .timeline-step, .stat-badge, .attraction-row, .effect-row, .price-box');
 
   animTargets.forEach(el => {
     el.style.opacity = '0';
