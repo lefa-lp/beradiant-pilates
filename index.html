@@ -2095,11 +2095,13 @@
       .column-grid { grid-template-columns: repeat(2, 1fr); }
       .kids-grid { grid-template-columns: 1fr; }
       .amenity-grid { grid-template-columns: repeat(3, 1fr); }
-      .num-row { gap: 16px; }
-      .num-circle-wrap { width: 110px; }
-      .num-circle { width: 100px; height: 100px; font-size: 11px; }
-      .num-circle .num { font-size: 22px; }
-      .num-banner { padding-left: 90px; font-size: 16px; }
+      .num-row { flex-direction: column; align-items: center; gap: 18px; }
+      .num-circle-wrap { width: auto; }
+      .num-line { display: none; }
+      .num-circle { width: 120px; height: 120px; font-size: 12px; }
+      .num-circle .num { font-size: 24px; }
+      .num-banner { padding: 22px 18px; font-size: 16px; }
+      .num-banner .ribbon { position: static; writing-mode: horizontal-tb; display: block; width: auto; margin: -22px -18px 16px; padding: 8px 12px; letter-spacing: 1px; }
       .fold-card { flex-direction: column; text-align: center; }
     }
 
@@ -2120,13 +2122,18 @@
       .stat-badge .stat-label { font-size: 7px; }
       .stat-badge .stat-unit { font-size: 7px; }
       .compare-section .table-wrap { padding: 16px; }
-      .attraction-row { flex-direction: column; text-align: center; }
-      .attraction-row p, .a-item p { padding-left: 0; }
-      .a-num-bar { flex-direction: column; }
-      .attraction-group { text-align: center; }
-      .attraction-group .a-photo-lg { position: static; transform: none; margin: 0 auto 24px; }
+      .attraction-list { max-width: 100%; }
+      .attraction-row, .a-item { text-align: left; }
+      .attraction-row p, .a-item p { padding-left: 0; margin-top: 6px; }
+      .a-num-bar { flex-direction: row; align-items: center; gap: 0; margin-bottom: 0; }
+      .a-num-bar .a-num { width: 52px; height: 52px; font-size: 20px; margin-right: -20px; position: relative; z-index: 2; }
+      .a-num-bar .a-label-col { z-index: 1; }
+      .a-num-bar .a-label { padding: 13px 16px 13px 32px; font-size: 15px; }
+      .attraction-group { display: flex; flex-direction: column; }
+      .attraction-group-body { order: 1; gap: 36px; }
+      .attraction-group .a-photo-lg { order: 2; position: static; transform: none; width: 240px; height: 240px; margin: 28px auto 0; }
       .a-item-near, .a-item-far { margin-left: 0; }
-      .intro-photo-row { flex-direction: column; }
+      .intro-photo-row { gap: 8px; margin-top: 20px; }
       .effect-row, .effect-row:nth-child(even) { flex-direction: column; }
       .effect-photo { width: 100%; height: 180px; flex: none; }
       .effect-text, .effect-row:nth-child(even) .effect-text { margin: -40px 16px 0; flex: none; }
@@ -2142,8 +2149,6 @@
       .pricing-grid { grid-template-columns: 1fr 1fr; }
       .column-grid { grid-template-columns: 1fr; }
       .amenity-grid { grid-template-columns: repeat(2, 1fr); }
-      .num-row { flex-direction: column; align-items: center; }
-      .num-line { display: none; }
       .trial-card { padding: 36px 24px; }
       .price-box { padding: 24px 18px; }
     }
