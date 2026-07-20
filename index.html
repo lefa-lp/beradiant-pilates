@@ -2135,10 +2135,11 @@
       .a-num-bar .a-num { width: 52px; height: 52px; font-size: 20px; margin-right: -20px; position: relative; z-index: 2; }
       .a-num-bar .a-label-col { z-index: 1; }
       .a-num-bar .a-label { padding: 13px 16px 13px 32px; font-size: 15px; }
-      .attraction-group { display: flex; flex-direction: column; }
-      .attraction-group-body { order: 1; gap: 36px; }
-      .attraction-group .a-photo-lg { order: 2; position: static; transform: none; width: 240px; height: 240px; margin: 28px auto 0; }
+      .attraction-group { display: contents; }
+      .attraction-group-body { order: 0; gap: 36px; }
+      .attraction-group .a-photo-lg { order: 1; position: static; transform: none; width: 240px; height: 240px; margin: 28px auto 0; }
       .a-item-near, .a-item-far { margin-left: 0; }
+      .cred-grid { grid-template-columns: 1fr !important; max-width: 400px !important; }
       .intro-photo-row { gap: 8px; margin-top: 20px; }
       .effect-row, .effect-row:nth-child(even) { flex-direction: column; }
       .effect-photo { width: 100%; height: 180px; flex: none; }
@@ -2426,7 +2427,7 @@
     <span class="section-label">CREDENTIALS</span>
     <h2 class="section-title">医療・専門家としての実績</h2>
     <p class="section-sub">雑誌掲載ではなく、本物の医療知識と実践経験が私たちの強みです。</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;">
+    <div class="cred-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;">
       <div class="media-card" style="min-width:unset;">
         <div style="margin-bottom:12px;"><img src="cred-pt-license.jpg" alt="理学療法士免許証" style="width:100%;height:200px;object-fit:cover;border-radius:8px;"></div>
         <p class="media-name" style="font-size:16px;font-style:normal;letter-spacing:0;line-height:1.4;">理学療法士<br>国家資格保有</p>
