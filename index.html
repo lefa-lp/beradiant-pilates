@@ -219,7 +219,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: var(--line-green);
+      background: linear-gradient(45deg, #f9ce34, #ee2a7b 45%, #6228d7);
       color: #fff;
       font-size: 16px;
       font-weight: 700;
@@ -227,17 +227,18 @@
       border-radius: 50px;
       text-decoration: none;
       transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 20px rgba(0,185,0,.35);
+      box-shadow: 0 4px 20px rgba(221,42,123,.35);
     }
 
     .btn-line-lg:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,185,0,.4);
+      box-shadow: 0 8px 30px rgba(221,42,123,.4);
     }
 
     .btn-line-lg .line-icon {
-      font-size: 20px;
-      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-note {
@@ -1875,15 +1876,22 @@
     }
 
     .access-map {
-      background: linear-gradient(135deg, #d0d8e8, #b0bcce);
       border-radius: 20px;
-      height: 360px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+      overflow: hidden;
       border: 2px solid var(--border);
+      background: #fff;
+    }
+
+    .access-map iframe {
+      display: block;
+      width: 100%;
+      height: 280px;
+      border: 0;
+    }
+
+    .access-map-caption {
+      padding: 16px 20px;
+      text-align: center;
     }
 
     .access-map .map-icon { font-size: 48px; }
@@ -2076,20 +2084,20 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      background: var(--line-green);
+      background: linear-gradient(45deg, #f9ce34, #ee2a7b 45%, #6228d7);
       color: #fff;
       font-size: 14px;
       font-weight: 700;
       padding: 14px 22px;
       border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 4px 20px rgba(0,185,0,.4);
+      box-shadow: 0 4px 20px rgba(221,42,123,.4);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 4px 20px rgba(0,185,0,.4); }
-      50% { box-shadow: 0 6px 30px rgba(0,185,0,.6); }
+      0%, 100% { box-shadow: 0 4px 20px rgba(221,42,123,.4); }
+      50% { box-shadow: 0 6px 30px rgba(221,42,123,.6); }
     }
 
     /* ===== RESPONSIVE ===== */
@@ -2295,7 +2303,7 @@
       <p class="hero-sub-title">理学療法士が1対1で指導する、<br>あなただけのピラティス</p>
       <div class="hero-btn-group">
         <a href="#trial" class="btn-line-lg">
-          <span class="line-icon">LINE</span>
+          <span class="line-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.3"/><line x1="17.4" y1="6.6" x2="17.4" y2="6.6"/></svg></span>
           無料相談・体験を予約する
         </a>
         <p class="hero-note">体験レッスン（60分）<strong>¥2,500</strong></p>
@@ -2310,7 +2318,7 @@
       <p class="hero-sub-title">年2回・米デンバーの解剖実習で磨いた<br>本物の「体を知る力」で指導します</p>
       <div class="hero-btn-group">
         <a href="#trial" class="btn-line-lg">
-          <span class="line-icon">LINE</span>
+          <span class="line-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.3"/><line x1="17.4" y1="6.6" x2="17.4" y2="6.6"/></svg></span>
           無料相談・体験を予約する
         </a>
         <p class="hero-note">体験レッスン（60分）<strong>¥2,500</strong></p>
@@ -2322,10 +2330,10 @@
     <div class="hero-text">
       <span class="hero-badge">完全個室 マンツーマン</span>
       <h1 class="hero-main-title">明日も10年後も、<br>好きな私で<br>生きていく</h1>
-      <p class="hero-sub-title">姿勢改善・産後ケア・ダイエットまで<br>あなたの目標に合わせたプログラムを</p>
+      <p class="hero-sub-title">姿勢改善・体幹強化・ダイエットまで<br>あなたの目標に合わせたプログラムを</p>
       <div class="hero-btn-group">
         <a href="#trial" class="btn-line-lg">
-          <span class="line-icon">LINE</span>
+          <span class="line-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.3"/><line x1="17.4" y1="6.6" x2="17.4" y2="6.6"/></svg></span>
           無料相談・体験を予約する
         </a>
         <p class="hero-note">体験レッスン（60分）<strong>¥2,500</strong></p>
@@ -2340,24 +2348,6 @@
     <span class="hero-dot" onclick="heroGo(2)"></span>
   </div>
 
-  <!-- ===== STAT BADGES ===== -->
-  <div class="stat-badges-wrap">
-    <div class="stat-badges">
-      <div class="stat-badge">
-        <span class="stat-label">会員継続率</span>
-        <span class="stat-value">93<small>%</small></span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-label">Google口コミ<br>平均評価</span>
-        <span class="stat-value">4.9</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-label">高評価口コミ</span>
-        <span class="stat-value">1200<small>件</small></span>
-        <span class="stat-unit">以上</span>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ===== TRIAL CTA CARD #1 ===== -->
@@ -2472,7 +2462,7 @@
         <div class="num-line"></div>
       </div>
       <div class="num-circle-wrap">
-        <div class="num-circle n4"><span class="num">04</span>産前産後の<br>体を整えたい</div>
+        <div class="num-circle n4"><span class="num">04</span>肩こり・腰痛を<br>改善したい</div>
         <div class="num-line"></div>
       </div>
       <div class="num-circle-wrap">
@@ -2619,27 +2609,6 @@
           <td><span class="cross">✗</span></td>
         </tr>
         <tr>
-          <td>マシンピラティス設備</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="partial">△</span></td>
-          <td><span class="partial">△</span></td>
-          <td><span class="cross">✗</span></td>
-        </tr>
-        <tr>
-          <td>子連れ対応（キッズスペース）</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-        </tr>
-        <tr>
-          <td>マタニティ・産後ケア対応</td>
-          <td><span class="check">✓</span></td>
-          <td><span class="partial">△</span></td>
-          <td><span class="cross">✗</span></td>
-          <td><span class="cross">✗</span></td>
-        </tr>
-        <tr>
           <td>理学療法士による指導</td>
           <td><span class="check">✓</span></td>
           <td><span class="cross">✗</span></td>
@@ -2675,36 +2644,36 @@
     <div class="review-grid">
       <div class="review-card">
         <div class="review-header">
-          <div class="review-avatar c1">👩</div>
+          <div class="review-avatar c1">👩‍💻</div>
           <div>
-            <p class="review-name">Y.K.さん</p>
-            <p class="review-age">20代 女性・子連れ利用</p>
+            <p class="review-name">N.I.さん</p>
+            <p class="review-age">30代 女性・会社員</p>
           </div>
         </div>
         <p class="stars">★★★★★</p>
-        <p>子どもを連れてでも安心して通えるスタジオを探していました。キッズスペースが広くて清潔で、子どもも楽しそうにしています。私も集中してレッスンを受けられています！</p>
+        <p>デスクワークで猫背と肩こりがひどく、体験レッスンへ。自分の姿勢のクセを丁寧に分析してもらい、今では肩まわりが軽くなって仕事の集中力も上がった気がします。</p>
       </div>
       <div class="review-card">
         <div class="review-header">
-          <div class="review-avatar c2">🤰</div>
+          <div class="review-avatar c2">💪</div>
           <div>
-            <p class="review-name">M.T.さん</p>
-            <p class="review-age">30代 女性・妊娠中</p>
+            <p class="review-name">E.F.さん</p>
+            <p class="review-age">20代 女性</p>
           </div>
         </div>
         <p class="stars">★★★★★</p>
-        <p>マタニティピラティスを探していてこちらへ。妊娠中の体の変化をしっかり理解した上で指導していただけて、安心してレッスンを続けられています。</p>
+        <p>自己流のダイエットでリバウンドを繰り返していましたが、こちらでは体の使い方から教えてもらえるので無理なく続けられています。3ヶ月で体のラインが変わってきました。</p>
       </div>
       <div class="review-card">
         <div class="review-header">
-          <div class="review-avatar c3">👩‍👧</div>
+          <div class="review-avatar c3">🙋‍♀️</div>
           <div>
-            <p class="review-name">A.S.さん</p>
-            <p class="review-age">30代 女性・子育て中</p>
+            <p class="review-name">S.N.さん</p>
+            <p class="review-age">40代 女性</p>
           </div>
         </div>
         <p class="stars">★★★★★</p>
-        <p>産後なかなか自分の時間が取れなかったのですが、赤ちゃんと一緒に来られるので無理なく通えています。姿勢が改善されてきたのが嬉しいです。</p>
+        <p>人の目が気になってグループレッスンは苦手でしたが、完全個室のマンツーマンなので安心して通えています。体幹が鍛えられ、階段の上り下りが楽になりました。</p>
       </div>
       <div class="review-card">
         <div class="review-header">
@@ -2770,7 +2739,7 @@
   <div class="section-inner">
     <span class="section-label">TRIAL LESSON</span>
     <h2 class="section-title">初回トライアルまでの流れ</h2>
-    <p class="section-sub">LINEからカンタンに予約できます。初めての方でも安心してご参加ください。</p>
+    <p class="section-sub">InstagramのDMからカンタンに予約できます。初めての方でも安心してご参加ください。</p>
     <div class="timeline">
       <div class="timeline-step">
         <div class="timeline-circle-wrap">
@@ -2781,7 +2750,7 @@
         </div>
         <div class="timeline-content">
           <h4>体験レッスン予約</h4>
-          <p>HPで空き状況を確認してください。<br>ご不明点はお気軽にLINEでお聞きください。</p>
+          <p>HPで空き状況を確認してください。<br>ご不明点はお気軽にInstagramのDMでお聞きください。</p>
         </div>
       </div>
       <div class="timeline-step">
@@ -2834,8 +2803,8 @@
       </div>
     </div>
     <div style="text-align:center;margin-top:48px;">
-      <a href="#" class="btn-line-lg" style="display:inline-flex;max-width:320px;margin:0 auto;">
-        <span class="line-icon">LINE</span>体験レッスンを予約する（¥2,500）
+      <a href="https://ig.me/m/naoki88_m" target="_blank" rel="noopener" class="btn-line-lg" style="display:inline-flex;max-width:320px;margin:0 auto;">
+        <span class="line-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.3"/><line x1="17.4" y1="6.6" x2="17.4" y2="6.6"/></svg></span>DMで体験レッスンを予約する（¥2,500）
       </a>
     </div>
   </div>
@@ -2926,7 +2895,7 @@
   <div class="section-inner">
     <span class="section-label">FAQ</span>
     <h2 class="section-title">よくある質問</h2>
-    <p class="section-sub">ご不明な点がありましたらお気軽にLINEでお問い合わせください。</p>
+    <p class="section-sub">ご不明な点がありましたらお気軽にInstagramのDMでお問い合わせください。</p>
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -2955,13 +2924,6 @@
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-a">近隣のコインパーキングをご利用ください</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span class="q-badge">Q</span>妊娠中でも通えますか？
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">はい、マタニティピラティスに対応しています。妊娠の時期や体の状態に合わせた安全なプログラムをご提供します。かかりつけ医への相談もご案内しています。</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -3002,9 +2964,11 @@
     <h2 class="section-title">アクセス</h2>
     <div class="access-grid">
       <div class="access-map">
-        <span class="map-icon">📍</span>
-        <p>〒810-0042<br>福岡県福岡市中央区赤坂1丁目6-10<br>エコルクス赤坂Ⅱ602号室</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=福岡県福岡市中央区赤坂1丁目6-10+エコルクス赤坂Ⅱ" style="display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:24px;text-decoration:none;margin-top:8px;">Google マップで見る</a>
+        <iframe src="https://www.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E8%B5%A4%E5%9D%821%E4%B8%81%E7%9B%AE6-10%20%E3%82%A8%E3%82%B3%E3%83%AB%E3%82%AF%E3%82%B9%E8%B5%A4%E5%9D%82%E2%85%A1&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Be Radiant. 地図"></iframe>
+        <div class="access-map-caption">
+          <p>〒810-0042<br>福岡県福岡市中央区赤坂1丁目6-10<br>エコルクス赤坂Ⅱ602号室</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=福岡県福岡市中央区赤坂1丁目6-10+エコルクス赤坂Ⅱ" target="_blank" rel="noopener" style="display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;padding:10px 22px;border-radius:24px;text-decoration:none;margin-top:8px;">Google マップで見る</a>
+        </div>
       </div>
       <div class="access-info">
         <h3>Be Radiant.<br>パーソナルピラティス</h3>
@@ -3056,8 +3020,8 @@
   <h2>まずは体験レッスン（¥2,500・60分）から</h2>
   <p>お問い合わせはDMへ</p>
   <div class="cta-btn-group">
-    <a href="#" class="btn-line-lg">
-      <span class="line-icon">LINE</span>LINEで体験予約する
+    <a href="https://ig.me/m/naoki88_m" target="_blank" rel="noopener" class="btn-line-lg">
+      <span class="line-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.3"/><line x1="17.4" y1="6.6" x2="17.4" y2="6.6"/></svg></span>DMで体験予約する
     </a>
   </div>
 </div>
@@ -3071,9 +3035,7 @@
         <p class="footer-logo-sub">パーソナル ピラティス</p>
         <p>完全個室・完全マンツーマンの<br>プライベートピラティススタジオ。<br>お客様一人ひとりに合わせた<br>最適なプログラムをご提供します。</p>
         <div class="footer-sns">
-          <a href="#" title="Instagram">📸</a>
-          <a href="#" title="X(Twitter)">🐦</a>
-          <a href="#" title="Facebook">📘</a>
+          <a href="https://www.instagram.com/naoki88_m/" target="_blank" rel="noopener" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.3"/><line x1="17.4" y1="6.6" x2="17.4" y2="6.6"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -3098,10 +3060,10 @@
   </div>
 </footer>
 
-<!-- ===== LINE FLOAT BUTTON ===== -->
+<!-- ===== INSTAGRAM DM FLOAT BUTTON ===== -->
 <div class="line-float">
-  <a href="#">
-    <span style="font-size:20px;font-weight:900;">LINE</span>
+  <a href="https://ig.me/m/naoki88_m" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="4.3"/><line x1="17.4" y1="6.6" x2="17.4" y2="6.6"/></svg>
     体験予約
   </a>
 </div>
